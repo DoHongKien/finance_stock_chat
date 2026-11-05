@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
-/// Extension chứa bộ màu Ngũ sắc đặc thù của Thị trường Chứng khoán Việt Nam
+/// Extension bộ màu Ngũ sắc đặc thù của Thị trường Chứng khoán Việt Nam
 @immutable
 class VietnamStockColors extends ThemeExtension<VietnamStockColors> {
   final Color ceiling;    // Tím trần (+7% HOSE / +10% HNX)
@@ -68,41 +68,39 @@ class VietnamStockColors extends ThemeExtension<VietnamStockColors> {
   }
 }
 
-/// Bộ cấu hình ThemeData Dark Mode chuyên dụng cho Web Tài Chính
-class FinanceTheme {
-  FinanceTheme._();
+/// Theme Dark Mode Tiết Kiệm Pin Màn Hình OLED Cho Điện Thoại
+class MobileFinanceTheme {
+  MobileFinanceTheme._();
 
-  static const Color backgroundPrimary = Color(0xFF0B0E14);
-  static const Color surfaceCard = Color(0xFF172030);
+  static const Color backgroundOled = Color(0xFF0A0D14);
+  static const Color surfaceCard = Color(0xFF151D2A);
   static const Color primaryBlue = Color(0xFF2563EB);
-  static const Color accentCyan = Color(0xFF38BDF8);
 
   static ThemeData get darkTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
-      scaffoldBackgroundColor: backgroundPrimary,
+      scaffoldBackgroundColor: backgroundOled,
       colorScheme: const ColorScheme.dark(
         primary: primaryBlue,
-        secondary: accentCyan,
+        secondary: Color(0xFF38BDF8),
         surface: surfaceCard,
-        background: backgroundPrimary,
+        background: backgroundOled,
         onSurface: Color(0xFFF8FAFC),
       ),
       extensions: const [
         VietnamStockColors.dark,
       ],
-      // Typography chuẩn với font số tabular cố định chiều rộng
+      // Font chữ chính & Font số Tabular
       fontFamily: 'Be Vietnam Pro',
       textTheme: const TextTheme(
         headlineMedium: TextStyle(
-          fontSize: 22,
+          fontSize: 20,
           fontWeight: FontWeight.w700,
           color: Color(0xFFF8FAFC),
-          letterSpacing: -0.3,
         ),
         titleMedium: TextStyle(
-          fontSize: 16,
+          fontSize: 15,
           fontWeight: FontWeight.w600,
           color: Color(0xFFF8FAFC),
         ),
@@ -110,7 +108,7 @@ class FinanceTheme {
           fontSize: 14,
           fontWeight: FontWeight.w400,
           color: Color(0xFFCBD5E1),
-          height: 1.5,
+          height: 1.45,
         ),
         bodySmall: TextStyle(
           fontSize: 12,
@@ -118,31 +116,11 @@ class FinanceTheme {
           color: Color(0xFF94A3B8),
         ),
       ),
-      // Tùy biến thanh cuộn Scrollbar chuẩn Desktop Web
-      scrollbarTheme: ScrollbarThemeData(
-        thumbColor: MaterialStateProperty.all(const Color(0xFF334155)),
-        trackColor: MaterialStateProperty.all(Colors.transparent),
-        radius: const Radius.circular(8),
-        thickness: MaterialStateProperty.all(6),
-        thumbVisibility: MaterialStateProperty.all(true),
-      ),
-      // Input field bóng mượt cho chat box
-      inputDecorationTheme: InputDecorationTheme(
-        filled: true,
-        fillColor: const Color(0xFF121824),
-        hintStyle: const TextStyle(color: Color(0xFF64748B), fontSize: 14),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Color(0xFF222E42)),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Color(0xFF222E42)),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: primaryBlue, width: 1.5),
+      // Cấu hình Modal Bottom Sheet bo góc mềm mại
+      bottomSheetTheme: const BottomSheetThemeData(
+        backgroundColor: Color(0xFF151D2A),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
         ),
       ),
     );
