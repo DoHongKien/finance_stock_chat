@@ -1,0 +1,15 @@
+name = "stockai-worker"
+main = "src/index.ts"
+compatibility_date = "2024-11-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+SSI_MCP_URL = "https://mcp.ssi.com.vn/mcp"
+GEMINI_MODEL = "gemini-2.0-flash"
+
+# Cloudflare D1 Database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "stockai-db"
+database_id = "cf9abedd-e542-4206-8ff1-ef17c1cdea97"
+

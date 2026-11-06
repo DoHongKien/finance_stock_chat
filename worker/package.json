@@ -1,0 +1,27 @@
+{
+  "name": "stockai-worker",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker Backend for StockAI VN (SSI MCP + Google Gemini 2.0 Flash + D1)",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:init": "wrangler d1 execute stockai-db --local --file=./schema.sql",
+    "db:remote": "wrangler d1 execute stockai-db --remote --file=./schema.sql"
+  },
+  "keywords": [
+    "cloudflare-workers",
+    "gemini",
+    "ssi",
+    "mcp",
+    "fintech"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241022.0",
+    "typescript": "^5.6.3",
+    "wrangler": "^3.84.1"
+  }
+}
+
